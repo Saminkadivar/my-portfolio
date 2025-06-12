@@ -18,17 +18,18 @@
       --bg: #121212;
       --text: #e0e0e0;
       --card-bg: rgba(30, 30, 30, 0.25);
-      --primary: #4b6cb7;
-      --secondary: #182848;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
     body {
       font-family: 'Rubik', sans-serif;
       background: var(--bg);
       color: var(--text);
       transition: all 0.4s ease;
     }
+
     header {
       position: sticky;
       top: 0;
@@ -38,6 +39,7 @@
       padding: 15px 0;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
+
     nav {
       max-width: 1100px;
       margin: auto;
@@ -45,19 +47,28 @@
       justify-content: space-between;
       align-items: center;
       padding: 0 20px;
+      flex-wrap: wrap;
     }
-    nav h1 { font-size: 26px; font-weight: 600; }
+
+    nav h1 {
+      font-size: 26px;
+      font-weight: 600;
+    }
+
     nav ul {
       list-style: none;
       display: flex;
       gap: 20px;
+      flex-wrap: wrap;
     }
+
     nav ul li a {
       color: white;
       text-decoration: none;
       font-weight: 500;
       position: relative;
     }
+
     nav ul li a::after {
       content: '';
       position: absolute;
@@ -68,9 +79,11 @@
       bottom: -4px;
       transition: 0.3s;
     }
+
     nav ul li a:hover::after {
       width: 100%;
     }
+
     nav .toggle-theme {
       cursor: pointer;
       font-size: 16px;
@@ -79,6 +92,7 @@
       border: none;
       border-radius: 5px;
       padding: 6px 12px;
+      margin-top: 10px;
     }
 
     .hero {
@@ -87,15 +101,20 @@
       background: linear-gradient(135deg, var(--primary), var(--secondary));
       color: white;
     }
+
     .hero h2 {
       font-size: 48px;
       font-weight: 600;
     }
+
     .hero span.typing {
       color: #e2f0ff;
     }
+
     .hero img {
-      width: 160px;
+      width: 100%;
+      max-width: 250px;
+      height: auto;
       border-radius: 50%;
       border: 4px solid white;
       margin-top: 25px;
@@ -106,32 +125,37 @@
       margin: 60px auto;
       padding: 0 20px;
     }
+
     .projects {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 25px;
     }
+
     .project-card {
       background: var(--card-bg);
       border-radius: 12px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.1);
       backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
       border: 1px solid rgba(255,255,255,0.2);
       overflow: hidden;
       transition: transform 0.3s;
     }
+
     .project-card:hover {
       transform: translateY(-5px);
     }
+
     .project-card img {
       width: 100%;
       height: 200px;
       object-fit: cover;
     }
+
     .project-card .info {
       padding: 16px;
     }
+
     .project-card .links a {
       margin-right: 10px;
       display: inline-block;
@@ -150,12 +174,14 @@
       flex-direction: column;
       gap: 16px;
     }
+
     .contact input, .contact textarea {
       padding: 12px;
       border: 1px solid #ccc;
       border-radius: 6px;
       font-size: 15px;
     }
+
     .contact button {
       padding: 12px;
       background: var(--primary);
@@ -173,12 +199,12 @@
       text-align: center;
       margin-top: 40px;
     }
+
     .skills div {
       background: var(--card-bg);
       padding: 20px;
       border-radius: 12px;
       backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
       border: 1px solid rgba(255,255,255,0.2);
     }
 
@@ -188,6 +214,43 @@
       text-align: center;
       padding: 20px 0;
       font-size: 15px;
+    }
+
+    /* Responsive Enhancements */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .hero h2 {
+        font-size: 32px;
+      }
+
+      .skills {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .skills {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h2 {
+        font-size: 28px;
+      }
+
+      nav h1 {
+        font-size: 22px;
+      }
     }
   </style>
 </head>
@@ -207,7 +270,7 @@
 
   <section class="hero">
     <h2>Hello, I'm <span class="typing"></span></h2>
-    <img src="img/logo.jpg" alt="Your Image" style="height: 300px;width:310px;"> 
+    <img src="img/logo.jpg" alt="Your Image">
   </section>
 
   <section id="about" class="section" data-aos="fade-right">
